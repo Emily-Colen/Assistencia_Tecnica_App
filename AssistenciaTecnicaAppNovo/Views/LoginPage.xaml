@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssistenciaTecnicaAppNovo.Views.LoginPage"
+             Title=""
+             BackgroundColor="#F0F4FF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER com gradiente azul UNIVAP -->
+            <Border BackgroundColor="#003087"
+                    StrokeThickness="0"
+                    HeightRequest="280"
+                    VerticalOptions="Fill">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,0,40,40" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="10"
+                                     Padding="24,40,24,30">
+
+                    <!-- Logo UNIVAP FEAU (SVG inline via Image source URL ou local) -->
+                    <!-- Substitua o Source pelo caminho do logo local quando disponível -->
+                    <Border BackgroundColor="White"
+                            StrokeThickness="0"
+                            WidthRequest="90"
+                            HeightRequest="90"
+                            HorizontalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="45" />
+                        </Border.StrokeShape>
+                        <Label Text="U"
+                               FontSize="48"
+                               FontAttributes="Bold"
+                               TextColor="#003087"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Text="UNIVAP · FEAU"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#A8C4FF"
+                           HorizontalOptions="Center"
+                           CharacterSpacing="3" />
+
+                    <Label Text="Assistência Técnica"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Sistema de Gestão"
+                           FontSize="13"
+                           TextColor="#8BAADD"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- CARD DE LOGIN -->
+            <Border Margin="24,30,24,24"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#20003087" Offset="0,4" Radius="16" Opacity="0.18" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Padding="28,32" Spacing="18">
+
+                    <Label Text="Bem-vindo de volta"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#1A1A2E"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Entre com suas credenciais para continuar"
+                           FontSize="13"
+                           TextColor="#888"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,6" />
+
+                    <!-- Campo E-mail -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="E-MAIL" FontSize="11" FontAttributes="Bold"
+                               TextColor="#003087" CharacterSpacing="1" />
+                        <Border BackgroundColor="#F5F8FF"
+                                StrokeThickness="1.5"
+                                Stroke="#C8D8FF">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <HorizontalStackLayout Padding="14,0" Spacing="10">
+                                <Label Text="✉" FontSize="18" TextColor="#003087"
+                                       VerticalOptions="Center" />
+                                <Entry x:Name="EmailEntry"
+                                       Placeholder="seu@email.com"
+                                       Keyboard="Email"
+                                       PlaceholderColor="#AABBDD"
+                                       TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent"
+                                       HeightRequest="48"
+                                       HorizontalOptions="FillAndExpand" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Campo Senha -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="SENHA" FontSize="11" FontAttributes="Bold"
+                               TextColor="#003087" CharacterSpacing="1" />
+                        <Border BackgroundColor="#F5F8FF"
+                                StrokeThickness="1.5"
+                                Stroke="#C8D8FF">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <HorizontalStackLayout Padding="14,0" Spacing="10">
+                                <Label Text="🔒" FontSize="18" TextColor="#003087"
+                                       VerticalOptions="Center" />
+                                <Entry x:Name="SenhaEntry"
+                                       Placeholder="••••••••"
+                                       IsPassword="True"
+                                       PlaceholderColor="#AABBDD"
+                                       TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent"
+                                       HeightRequest="48"
+                                       HorizontalOptions="FillAndExpand" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Mensagem de erro -->
+                    <Label x:Name="MensagemLabel"
+                           TextColor="#D32F2F"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           IsVisible="False" />
+
+                    <!-- Botão Entrar -->
+                    <Button Text="ENTRAR"
+                            Clicked="OnEntrarClicked"
+                            BackgroundColor="#003087"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            CharacterSpacing="2"
+                            HeightRequest="54"
+                            CornerRadius="14"
+                            Margin="0,8,0,0">
+                        <Button.Shadow>
+                            <Shadow Brush="#40003087" Offset="0,4" Radius="10" Opacity="0.35" />
+                        </Button.Shadow>
+                    </Button>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Rodapé -->
+            <Label Text="© UNIVAP · Faculdade de Engenharia, Arquitetura e Urbanismo"
+                   FontSize="11"
+                   TextColor="#AAAAAA"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,24" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    AppStyles.xaml — Estilos Globais · UNIVAP FEAU · Assistência Técnica
+    Adicione este arquivo em: Resources/Styles/AppStyles.xaml
+    Depois inclua no App.xaml:
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Resources/Styles/AppStyles.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ===========================
+         PALETA DE CORES UNIVAP
+    =========================== -->
+    <Color x:Key="UniBlue">#003087</Color>
+    <Color x:Key="UniBlueLight">#E8EEFF</Color>
+    <Color x:Key="UniBlueMid">#8BAADD</Color>
+
+    <Color x:Key="AppGreen">#1B5E20</Color>
+    <Color x:Key="AppGreenLight">#E8F5E9</Color>
+
+    <Color x:Key="AppPurple">#6A1B9A</Color>
+    <Color x:Key="AppPurpleLight">#F3E5F5</Color>
+
+    <Color x:Key="AppBackground">#F0F4FF</Color>
+    <Color x:Key="AppCardBg">White</Color>
+    <Color x:Key="AppTextPrimary">#1A1A2E</Color>
+    <Color x:Key="AppTextSecondary">#666666</Color>
+    <Color x:Key="AppTextMuted">#AAAAAA</Color>
+    <Color x:Key="AppInputBg">#F5F8FF</Color>
+    <Color x:Key="AppInputBorder">#C8D8FF</Color>
+
+    <!-- ===========================
+         ESTILOS DE BOTÕES
+    =========================== -->
+
+    <!-- Botão primário azul UNIVAP -->
+    <Style x:Key="BtnPrimary" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource UniBlue}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="CornerRadius" Value="14" />
+    </Style>
+
+    <!-- Botão verde -->
+    <Style x:Key="BtnGreen" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AppGreen}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="CornerRadius" Value="14" />
+    </Style>
+
+    <!-- Botão roxo -->
+    <Style x:Key="BtnPurple" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AppPurple}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="CornerRadius" Value="14" />
+    </Style>
+
+    <!-- Botão secundário (outline) -->
+    <Style x:Key="BtnSecondary" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource UniBlueLight}" />
+        <Setter Property="TextColor" Value="{StaticResource UniBlue}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HeightRequest" Value="36" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="12,0" />
+    </Style>
+
+    <!-- ===========================
+         ESTILOS DE LABELS
+    =========================== -->
+
+    <Style x:Key="LabelSectionHeader" TargetType="Label">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource UniBlue}" />
+        <Setter Property="CharacterSpacing" Value="1.5" />
+    </Style>
+
+    <Style x:Key="LabelFieldName" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="#555555" />
+    </Style>
+
+    <Style x:Key="LabelTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+
+    <Style x:Key="LabelSubtitle" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource UniBlueMid}" />
+    </Style>
+
+    <!-- ===========================
+         ESTILOS DE ENTRY/INPUT
+    =========================== -->
+
+    <Style x:Key="InputField" TargetType="Entry">
+        <Setter Property="PlaceholderColor" Value="{StaticResource AppTextMuted}" />
+        <Setter Property="TextColor" Value="{StaticResource AppTextPrimary}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HeightRequest" Value="46" />
+    </Style>
+
+    <!-- ===========================
+         CARD SHADOW (para referência)
+    =========================== -->
+    <!--
+    Uso sugerido para cards:
+    <Border.Shadow>
+        <Shadow Brush="#18003087" Offset="0,4" Radius="14" Opacity="0.15" />
+    </Border.Shadow>
+    -->
+
+</ResourceDictionary>

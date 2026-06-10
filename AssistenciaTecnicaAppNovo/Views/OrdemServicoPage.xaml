@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssistenciaTecnicaAppNovo.Views.OrdemServicoPage"
+             Title=""
+             BackgroundColor="#F0F4FF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Border BackgroundColor="#6A1B9A"
+                    StrokeThickness="0"
+                    HeightRequest="130">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,0,32,32" />
+                </Border.StrokeShape>
+                <Grid Padding="24,36,24,20" ColumnDefinitions="Auto,*">
+                    <Border Grid.Column="0"
+                            BackgroundColor="#FFFFFF30"
+                            StrokeThickness="0"
+                            WidthRequest="40" HeightRequest="40"
+                            VerticalOptions="Center"
+                            Margin="0,0,14,0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Label Text="📝" FontSize="20"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                        <Label Text="Ordens de Serviço" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="Abertura e acompanhamento" FontSize="13" TextColor="#CE93D8" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- FORM CARD -->
+            <Border Margin="20,24,20,0"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#186A1B9A" Offset="0,4" Radius="14" Opacity="0.15" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Padding="24,26" Spacing="16">
+                    <Label Text="NOVA ORDEM DE SERVIÇO"
+                           FontSize="11" FontAttributes="Bold"
+                           TextColor="#6A1B9A" CharacterSpacing="1.5" />
+
+                    <!-- IDs: Equipamento / Técnico / Status -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="ID Equipamento" FontSize="11" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="EquipamentoIdEntry" Placeholder="0" Keyboard="Numeric"
+                                       PlaceholderColor="#BBAACC" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="10,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="ID Técnico" FontSize="11" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="TecnicoIdEntry" Placeholder="Opcional" Keyboard="Numeric"
+                                       PlaceholderColor="#BBAACC" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="10,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2" Spacing="5">
+                            <Label Text="ID Status" FontSize="11" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="StatusIdEntry" Placeholder="0" Keyboard="Numeric"
+                                       PlaceholderColor="#BBAACC" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="10,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Defeito Relatado -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Defeito relatado pelo cliente" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Editor x:Name="DefeitoEditor"
+                                    Placeholder="Descreva o problema relatado pelo cliente..."
+                                    HeightRequest="90"
+                                    PlaceholderColor="#BBAACC"
+                                    TextColor="#1A1A2E"
+                                    BackgroundColor="Transparent"
+                                    Margin="12,6" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Descrição da Manutenção -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Descrição da manutenção" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Editor x:Name="DescricaoEditor"
+                                    Placeholder="Descreva o serviço a ser realizado..."
+                                    HeightRequest="90"
+                                    PlaceholderColor="#BBAACC"
+                                    TextColor="#1A1A2E"
+                                    BackgroundColor="Transparent"
+                                    Margin="12,6" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Preço -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Preço (R$)" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#FAF0FF" StrokeThickness="1.5" Stroke="#DDB3FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <HorizontalStackLayout Padding="14,0" Spacing="8">
+                                <Label Text="R$" FontSize="15" FontAttributes="Bold"
+                                       TextColor="#6A1B9A" VerticalOptions="Center" />
+                                <Entry x:Name="PrecoEntry" Placeholder="0,00" Keyboard="Numeric"
+                                       PlaceholderColor="#BBAACC" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46"
+                                       HorizontalOptions="FillAndExpand" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Botão Abrir Ordem -->
+                    <Button Text="📋  ABRIR ORDEM DE SERVIÇO"
+                            Clicked="OnAbrirClicked"
+                            BackgroundColor="#6A1B9A"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            HeightRequest="52"
+                            CornerRadius="14"
+                            Margin="0,8,0,0">
+                        <Button.Shadow>
+                            <Shadow Brush="#406A1B9A" Offset="0,4" Radius="10" Opacity="0.35" />
+                        </Button.Shadow>
+                    </Button>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- LISTA DE ORDENS -->
+            <VerticalStackLayout Padding="20,24,20,0" Spacing="14">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0" Text="📋  ORDENS EM ABERTO"
+                           FontSize="12" FontAttributes="Bold"
+                           TextColor="#6A1B9A" CharacterSpacing="1.5"
+                           VerticalOptions="Center" />
+                    <Button Grid.Column="1"
+                            Text="↻  Atualizar"
+                            Clicked="OnAtualizarListaClicked"
+                            BackgroundColor="#F3E5F5"
+                            TextColor="#6A1B9A"
+                            FontSize="12" FontAttributes="Bold"
+                            HeightRequest="36" CornerRadius="10" Padding="12,0" />
+                </Grid>
+
+                <CollectionView x:Name="OrdensCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,10"
+                                    BackgroundColor="White"
+                                    StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#12000000" Offset="0,2" Radius="8" Opacity="0.12" />
+                                </Border.Shadow>
+                                <Grid Padding="16,14" ColumnDefinitions="54,*">
+                                    <!-- Badge OS -->
+                                    <Border Grid.Column="0"
+                                            BackgroundColor="#F3E5F5"
+                                            StrokeThickness="0"
+                                            WidthRequest="42" HeightRequest="42"
+                                            VerticalOptions="Center">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="12" />
+                                        </Border.StrokeShape>
+                                        <Label Text="{Binding IdOrdemServico, StringFormat='#{0}'}"
+                                               FontSize="11" FontAttributes="Bold"
+                                               TextColor="#6A1B9A"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center"
+                                                         Spacing="3" Margin="12,0,0,0">
+                                        <Label Text="{Binding IdOrdemServico, StringFormat='Ordem de Serviço #{0}'}"
+                                               FontAttributes="Bold" FontSize="15" TextColor="#1A1A2E" />
+                                        <Label Text="{Binding DefeitoRelatado}"
+                                               FontSize="12" TextColor="#666"
+                                               MaxLines="2" LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding Preco, StringFormat='R$ {0:F2}'}"
+                                               FontSize="13" FontAttributes="Bold"
+                                               TextColor="#6A1B9A" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="24" Color="Transparent" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

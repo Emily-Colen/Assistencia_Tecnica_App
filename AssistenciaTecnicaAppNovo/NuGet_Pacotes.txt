@@ -1,0 +1,5 @@
+Dapper
+MySqlConnector
+MongoDB.Driver
+sqlite-net-pcl
+Microsoft.Extensions.Logging.Debug

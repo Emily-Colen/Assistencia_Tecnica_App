@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssistenciaTecnicaAppNovo.Views.ClientePage"
+             Title=""
+             BackgroundColor="#F0F4FF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Border BackgroundColor="#003087"
+                    StrokeThickness="0"
+                    HeightRequest="130">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,0,32,32" />
+                </Border.StrokeShape>
+                <Grid Padding="24,36,24,20" ColumnDefinitions="Auto,*">
+                    <Border Grid.Column="0"
+                            BackgroundColor="#FFFFFF30"
+                            StrokeThickness="0"
+                            WidthRequest="40" HeightRequest="40"
+                            VerticalOptions="Center"
+                            Margin="0,0,14,0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Label Text="👥" FontSize="20"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                        <Label Text="Clientes" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="Cadastro e consulta" FontSize="13" TextColor="#A8C4FF" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- FORM CARD -->
+            <Border Margin="20,24,20,0"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#18003087" Offset="0,4" Radius="14" Opacity="0.15" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Padding="24,26" Spacing="16">
+                    <Label Text="NOVO CLIENTE"
+                           FontSize="11"
+                           FontAttributes="Bold"
+                           TextColor="#003087"
+                           CharacterSpacing="1.5" />
+
+                    <!-- Nome -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nome completo" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="NomeEntry" Placeholder="Ex: João da Silva"
+                                   PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- CPF/CNPJ -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="CPF / CNPJ" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="CpfCnpjEntry" Placeholder="000.000.000-00"
+                                   PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- E-mail -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="E-mail" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="EmailEntry" Placeholder="cliente@email.com" Keyboard="Email"
+                                   PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Telefone -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Telefone" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="TelefoneEntry" Placeholder="(12) 99999-9999" Keyboard="Telephone"
+                                   PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Linha: ID Rua + Número -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="ID da Rua" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="RuaIdEntry" Placeholder="0" Keyboard="Numeric"
+                                       PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Número" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="NumeroEntry" Placeholder="Ex: 123"
+                                       PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Complemento -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Complemento" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F5F8FF" StrokeThickness="1.5" Stroke="#C8D8FF">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="ComplementoEntry" Placeholder="Apto, bloco, etc."
+                                   PlaceholderColor="#AABBDD" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Botão Salvar -->
+                    <Button Text="✔  SALVAR CLIENTE"
+                            Clicked="OnSalvarClicked"
+                            BackgroundColor="#003087"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            HeightRequest="52"
+                            CornerRadius="14"
+                            Margin="0,8,0,0">
+                        <Button.Shadow>
+                            <Shadow Brush="#40003087" Offset="0,4" Radius="10" Opacity="0.35" />
+                        </Button.Shadow>
+                    </Button>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- LISTA DE CLIENTES -->
+            <VerticalStackLayout Padding="20,24,20,0" Spacing="14">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0" Text="👤  CLIENTES CADASTRADOS"
+                           FontSize="12" FontAttributes="Bold"
+                           TextColor="#003087" CharacterSpacing="1.5"
+                           VerticalOptions="Center" />
+                    <Button Grid.Column="1"
+                            Text="↻  Atualizar"
+                            Clicked="OnAtualizarListaClicked"
+                            BackgroundColor="#E8EEFF"
+                            TextColor="#003087"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            HeightRequest="36"
+                            CornerRadius="10"
+                            Padding="12,0" />
+                </Grid>
+
+                <CollectionView x:Name="ClientesCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,10"
+                                    BackgroundColor="White"
+                                    StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#12000000" Offset="0,2" Radius="8" Opacity="0.12" />
+                                </Border.Shadow>
+                                <Grid Padding="16,14" ColumnDefinitions="44,*">
+                                    <Border Grid.Column="0"
+                                            BackgroundColor="#E8EEFF"
+                                            StrokeThickness="0"
+                                            WidthRequest="36" HeightRequest="36"
+                                            VerticalOptions="Center">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="18" />
+                                        </Border.StrokeShape>
+                                        <Label Text="👤" FontSize="16"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center"
+                                                         Spacing="2" Margin="10,0,0,0">
+                                        <Label Text="{Binding Nome}"
+                                               FontAttributes="Bold"
+                                               FontSize="15"
+                                               TextColor="#1A1A2E" />
+                                        <Label Text="{Binding CpfCnpj}"
+                                               FontSize="12"
+                                               TextColor="#666" />
+                                        <Label Text="{Binding Email}"
+                                               FontSize="12"
+                                               TextColor="#003087" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="24" Color="Transparent" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssistenciaTecnicaAppNovo.Views.PecaPage"
+             Title=""
+             BackgroundColor="#F0F4FF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Border BackgroundColor="#1B5E20"
+                    StrokeThickness="0"
+                    HeightRequest="130">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,0,32,32" />
+                </Border.StrokeShape>
+                <Grid Padding="24,36,24,20" ColumnDefinitions="Auto,*">
+                    <Border Grid.Column="0"
+                            BackgroundColor="#FFFFFF30"
+                            StrokeThickness="0"
+                            WidthRequest="40" HeightRequest="40"
+                            VerticalOptions="Center"
+                            Margin="0,0,14,0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Label Text="🔧" FontSize="20"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                        <Label Text="Peças / Estoque" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="Cadastro e controle de estoque" FontSize="13" TextColor="#A5D6A7" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- FORM CARD -->
+            <Border Margin="20,24,20,0"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#181B5E20" Offset="0,4" Radius="14" Opacity="0.15" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Padding="24,26" Spacing="16">
+                    <Label Text="NOVA PEÇA"
+                           FontSize="11" FontAttributes="Bold"
+                           TextColor="#1B5E20" CharacterSpacing="1.5" />
+
+                    <!-- Código -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Código" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="CodigoEntry" Placeholder="Ex: PC-0001"
+                                   PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Nome da Peça -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nome da peça" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="NomeEntry" Placeholder="Ex: Placa-mãe Intel"
+                                   PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Descrição -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Descrição" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                        <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                            <Entry x:Name="DescricaoEntry" Placeholder="Descrição detalhada"
+                                   PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                   BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Estoque Atual / Mínimo -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="Estoque atual" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="EstoqueEntry" Placeholder="0" Keyboard="Numeric"
+                                       PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Estoque mínimo" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="EstoqueMinimoEntry" Placeholder="0" Keyboard="Numeric"
+                                       PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Valor Custo / Venda -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="Valor de custo (R$)" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="ValorCustoEntry" Placeholder="0,00" Keyboard="Numeric"
+                                       PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Valor de venda (R$)" FontSize="12" TextColor="#555" FontAttributes="Bold" />
+                            <Border BackgroundColor="#F0FFF4" StrokeThickness="1.5" Stroke="#B2DFDB">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                                <Entry x:Name="ValorVendaEntry" Placeholder="0,00" Keyboard="Numeric"
+                                       PlaceholderColor="#99BBAA" TextColor="#1A1A2E"
+                                       BackgroundColor="Transparent" HeightRequest="46" Margin="12,0" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Botão Salvar -->
+                    <Button Text="✔  SALVAR PEÇA"
+                            Clicked="OnSalvarClicked"
+                            BackgroundColor="#1B5E20"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            HeightRequest="52"
+                            CornerRadius="14"
+                            Margin="0,8,0,0">
+                        <Button.Shadow>
+                            <Shadow Brush="#401B5E20" Offset="0,4" Radius="10" Opacity="0.35" />
+                        </Button.Shadow>
+                    </Button>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- LISTA DE PEÇAS -->
+            <VerticalStackLayout Padding="20,24,20,0" Spacing="14">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0" Text="🔩  PEÇAS CADASTRADAS"
+                           FontSize="12" FontAttributes="Bold"
+                           TextColor="#1B5E20" CharacterSpacing="1.5"
+                           VerticalOptions="Center" />
+                    <Button Grid.Column="1"
+                            Text="↻  Atualizar"
+                            Clicked="OnAtualizarListaClicked"
+                            BackgroundColor="#E8F5E9"
+                            TextColor="#1B5E20"
+                            FontSize="12" FontAttributes="Bold"
+                            HeightRequest="36" CornerRadius="10" Padding="12,0" />
+                </Grid>
+
+                <CollectionView x:Name="PecasCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,10"
+                                    BackgroundColor="White"
+                                    StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#12000000" Offset="0,2" Radius="8" Opacity="0.12" />
+                                </Border.Shadow>
+                                <Grid Padding="16,14" ColumnDefinitions="44,*,Auto">
+                                    <Border Grid.Column="0"
+                                            BackgroundColor="#E8F5E9"
+                                            StrokeThickness="0"
+                                            WidthRequest="36" HeightRequest="36"
+                                            VerticalOptions="Center">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
+                                        <Label Text="🔩" FontSize="16"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center"
+                                                         Spacing="2" Margin="10,0,0,0">
+                                        <Label Text="{Binding Nome}"
+                                               FontAttributes="Bold" FontSize="15" TextColor="#1A1A2E" />
+                                        <Label Text="{Binding Codigo}"
+                                               FontSize="12" TextColor="#666" />
+                                    </VerticalStackLayout>
+                                    <!-- Badge de estoque -->
+                                    <Border Grid.Column="2"
+                                            BackgroundColor="#E8F5E9"
+                                            StrokeThickness="0"
+                                            VerticalOptions="Center"
+                                            Padding="10,6">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
+                                        <Label Text="{Binding EstoqueAtual, StringFormat='Qtd: {0}'}"
+                                               FontSize="12" FontAttributes="Bold"
+                                               TextColor="#1B5E20" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="24" Color="Transparent" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

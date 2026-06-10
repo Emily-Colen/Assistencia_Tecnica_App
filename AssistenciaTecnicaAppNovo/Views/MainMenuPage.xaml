@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssistenciaTecnicaAppNovo.Views.MainMenuPage"
+             Title=""
+             BackgroundColor="#F0F4FF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- TOP BAR UNIVAP -->
+            <Border BackgroundColor="#003087"
+                    StrokeThickness="0"
+                    HeightRequest="160">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,0,32,32" />
+                </Border.StrokeShape>
+
+                <Grid Padding="24,36,24,20" ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="3">
+                        <Label Text="UNIVAP · FEAU"
+                               FontSize="11"
+                               TextColor="#8BAADD"
+                               FontAttributes="Bold"
+                               CharacterSpacing="2" />
+                        <Label Text="Menu Principal"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+                        <Label Text="Assistência Técnica"
+                               FontSize="13"
+                               TextColor="#A8C4FF" />
+                    </VerticalStackLayout>
+
+                    <!-- Avatar / Logo -->
+                    <Border Grid.Column="1"
+                            BackgroundColor="White"
+                            StrokeThickness="0"
+                            WidthRequest="54"
+                            HeightRequest="54"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="27" />
+                        </Border.StrokeShape>
+                        <Label Text="U"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#003087"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- SEÇÃO: Cadastros -->
+            <VerticalStackLayout Padding="24,28,24,0" Spacing="14">
+                <Label Text="📋  CADASTROS"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="#003087"
+                       CharacterSpacing="1.5" />
+
+                <!-- Card: Clientes -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#18003087" Offset="0,3" Radius="12" Opacity="0.15" />
+                    </Border.Shadow>
+                    <Grid Padding="20,18" ColumnDefinitions="56,*,Auto">
+                        <Border Grid.Column="0"
+                                BackgroundColor="#E8EEFF"
+                                StrokeThickness="0"
+                                WidthRequest="46"
+                                HeightRequest="46"
+                                VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+                            <Label Text="👥" FontSize="22"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2" Margin="12,0,0,0">
+                            <Label Text="Clientes" FontSize="16" FontAttributes="Bold" TextColor="#1A1A2E" />
+                            <Label Text="Gerenciar cadastros de clientes" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="22" TextColor="#003087"
+                               VerticalOptions="Center" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClientesClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Border>
+
+                <!-- Card: Peças / Estoque -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#18003087" Offset="0,3" Radius="12" Opacity="0.15" />
+                    </Border.Shadow>
+                    <Grid Padding="20,18" ColumnDefinitions="56,*,Auto">
+                        <Border Grid.Column="0"
+                                BackgroundColor="#E8F5E9"
+                                StrokeThickness="0"
+                                WidthRequest="46"
+                                HeightRequest="46"
+                                VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+                            <Label Text="🔧" FontSize="22"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2" Margin="12,0,0,0">
+                            <Label Text="Peças / Estoque" FontSize="16" FontAttributes="Bold" TextColor="#1A1A2E" />
+                            <Label Text="Controle de estoque e peças" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="22" TextColor="#003087"
+                               VerticalOptions="Center" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPecasClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Border>
+
+                <!-- Card: Ordens de Serviço -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#18003087" Offset="0,3" Radius="12" Opacity="0.15" />
+                    </Border.Shadow>
+                    <Grid Padding="20,18" ColumnDefinitions="56,*,Auto">
+                        <Border Grid.Column="0"
+                                BackgroundColor="#FFF8E1"
+                                StrokeThickness="0"
+                                WidthRequest="46"
+                                HeightRequest="46"
+                                VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+                            <Label Text="📝" FontSize="22"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2" Margin="12,0,0,0">
+                            <Label Text="Ordens de Serviço" FontSize="16" FontAttributes="Bold" TextColor="#1A1A2E" />
+                            <Label Text="Abrir e acompanhar ordens" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="22" TextColor="#003087"
+                               VerticalOptions="Center" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrdensClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <!-- SEÇÃO: Backup -->
+            <VerticalStackLayout Padding="24,28,24,0" Spacing="14">
+                <Label Text="💾  BACKUP DE DADOS"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="#003087"
+                       CharacterSpacing="1.5" />
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <!-- Exportar JSON -->
+                    <Border Grid.Column="0"
+                            BackgroundColor="White"
+                            StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16" />
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#18003087" Offset="0,3" Radius="12" Opacity="0.15" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="18,20" Spacing="8" HorizontalOptions="Center">
+                            <Label Text="⬆️" FontSize="28" HorizontalOptions="Center" />
+                            <Label Text="Exportar JSON" FontSize="14" FontAttributes="Bold"
+                                   TextColor="#1A1A2E" HorizontalOptions="Center" />
+                            <Label Text="Backup dos dados" FontSize="11" TextColor="#888"
+                                   HorizontalOptions="Center" />
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnExportarJsonClicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Importar JSON -->
+                    <Border Grid.Column="1"
+                            BackgroundColor="White"
+                            StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16" />
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#18003087" Offset="0,3" Radius="12" Opacity="0.15" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="18,20" Spacing="8" HorizontalOptions="Center">
+                            <Label Text="⬇️" FontSize="28" HorizontalOptions="Center" />
+                            <Label Text="Importar JSON" FontSize="14" FontAttributes="Bold"
+                                   TextColor="#1A1A2E" HorizontalOptions="Center" />
+                            <Label Text="Restaurar dados" FontSize="11" TextColor="#888"
+                                   HorizontalOptions="Center" />
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnImportarJsonClicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- Rodapé -->
+            <Label Text="© UNIVAP · Faculdade de Engenharia, Arquitetura e Urbanismo"
+                   FontSize="11"
+                   TextColor="#BBBBBB"
+                   HorizontalOptions="Center"
+                   Margin="0,28,0,24" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
